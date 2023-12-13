@@ -28,20 +28,17 @@ void applyCircularMask(unsigned char* img_data, int width, int height, int chann
 
     stbi_image_free(img_data);
 
-    // Applying Gaussian blur (you might need a dedicated library for this in C)
-    // ...
+    
 
     unsigned char* result_data = (unsigned char*)malloc(width * height * channels);
     
-    // Apply the circular mask
+    
     for (int i = 0; i < width * height; ++i) {
         for (int j = 0; j < channels; ++j) {
             result_data[i * channels + j] = img_data[i * channels + j] * mask_data[i] / 255;
         }
     }
 
-    // Save or display the result_data as needed
-    // ...
 
     free(mask_data);
     free(result_data);
